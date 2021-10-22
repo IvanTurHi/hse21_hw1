@@ -42,3 +42,15 @@
 >mkdir trimmed_multiqc  
 >multiqc -o trimmed_multiqc trimmed_fastqc  
 
+# Сравним полученные данные multiqc в формате До/После
+
+Уменьшилась длина последовательностей
+![image](https://user-images.githubusercontent.com/65420132/138486226-3136067a-f7cd-404b-a8bb-ade573674643.png)  
+
+Улучшилось качество чтений
+![image](https://user-images.githubusercontent.com/65420132/138486913-ccfe5f6c-91df-4c34-bdd3-c0fbb79a883e.png)
+
+И практически полностью удалены адаптеры
+![image](https://user-images.githubusercontent.com/65420132/138487052-1ee2b872-d3d7-4db6-a612-85972a8b414f.png)
+
+
