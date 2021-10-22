@@ -53,4 +53,8 @@
 И практически полностью удалены адаптеры
 ![image](https://user-images.githubusercontent.com/65420132/138487052-1ee2b872-d3d7-4db6-a612-85972a8b414f.png)
 
+Сбор контигов
+>time platanus assemble -o Poil -t 2 -m 28 -f re_oil_R1.fastq.trimmed re_oil_R2.fastq.trimmed 2> assembl.log  
+Анализ контигов в collab
+https://colab.research.google.com/drive/1RFcRNY3gqPANSa03XqZ_zVCMCXZtAlak#scrollTo=yo9RJaGtR96B
 
