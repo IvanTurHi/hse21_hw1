@@ -55,6 +55,32 @@
 
 Сбор контигов
 >time platanus assemble -o Poil -t 2 -m 28 -f re_oil_R1.fastq.trimmed re_oil_R2.fastq.trimmed 2> assembl.log  
+
 Анализ контигов в collab
 https://colab.research.google.com/drive/1RFcRNY3gqPANSa03XqZ_zVCMCXZtAlak#scrollTo=yo9RJaGtR96B
 
+Сбор скаффолдов
+>time platanus scaffold -o Poil -t 2 -c Poil_contig.fa -IP1 re_oil_R1.fastq.trimmed re_oil_R2.fastq.trimmed -OP2 re_oilMP_S4_L001_R1_001.fastq.int_trimmed re_oilMP_S4_L001_R2_001.fastq.int_trimmed 2> scaffold.log  
+
+Анализ скаффолдов в collab
+https://colab.research.google.com/drive/1EHq1iicIGNnaDpOiwcHHqXVmr9kPj0Yn#scrollTo=iV1r6SQteBHz  
+
+Извлекаем самый длинный скаффолд
+>echo scaffold1_len3832270_cov232 > buf.txt  
+>seqtk subseq Poil_scaffold.fa buf.txt > MaxScaf.fa  
+
+Анализируем наличие гэпов в самом длинном скаффолде
+https://colab.research.google.com/drive/1mpAmN0bQItKjZOIdmVvAXS5LDfpu7SFy#scrollTo=reavCdy9gUM0  
+
+Уменьшаем количество гэпов
+>time platanus gap_close -o Poil -t 2 -c Poil_scaffold.fa -IP1 re_oil_R1.fastq.trimmed re_oil_R2.fastq.trimmed -OP2 re_oilMP_S4_L001_R1_001.fastq.int_trimmed re_oilMP_S4_L001_R2_001.fastq.int_trimmed 2> gapclose.log  
+
+Опять вытаскиваем самый длинный скафолд
+>echo scaffold1_cov232 > buf1.txt  
+>seqtk subseq Poil_gapClosed.fa buf1.txt > MaxScaf_low_gep.fa  
+
+Вновь анализируем наличие гэпов, но уже при помощи файла MaxScaf_low_gep.fa
+https://colab.research.google.com/drive/1mpAmN0bQItKjZOIdmVvAXS5LDfpu7SFy#scrollTo=reavCdy9gUM0
+
+Удаляем ненужные файлы
+>rm *.fastq*  
